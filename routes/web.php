@@ -23,6 +23,7 @@ Route::get('/login', 'LoginController@login')->name('login');
 Route::post('/login', 'LoginController@userLogin')->name('user-login');
 Route::get('/register', 'LoginController@register')->name('register');
 Route::post('/register', 'LoginController@userRegister')->name('user-register');
+Route::post('/logout', 'LoginController@logout')->name('logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
