@@ -17,7 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'status', 'created_by', 'updated_by', 'deleted_by'
+        'name', 'email', 'password', 'role', 'status'
     ];
 
     /**
@@ -61,4 +61,11 @@ class User extends Authenticatable implements MustVerifyEmail
     |--------------------------------------------------------------------------
      */
     public function getActiveAttribute() { return $this->status == 1 ? 'Active' : 'InActive'; }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Set method
+    |--------------------------------------------------------------------------
+    */
+    public function setPasswordAttribute($v) { $this->attributes['password'] = bcrypt($v); }
 }

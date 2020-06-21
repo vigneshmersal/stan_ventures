@@ -40,7 +40,7 @@
 
                                     <a class="btn btn-small btn-warning" href="{{ route('user.edit', $user) }}">Edit</a>
 
-                                    {{ Form::open([ 'route' => ['user.destroy', $user], 'class' => 'pull-right']) }}
+                                    {{ Form::open([ 'route' => ['user.destroy', $user], 'class' => 'pull-right deleteUser']) }}
                                         @method("DELETE")
                                         {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
                                     {{ Form::close() }}
@@ -67,3 +67,16 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+    <script type="text/javascript">
+        $(function() {
+            $(".deleteUser").on('click', function(e) {
+                e.preventDefault();
+                if(confirm('Are you really want to delete?')) {
+                    $(this).submit();
+                }
+            });
+        });
+    </script>
+@endpush

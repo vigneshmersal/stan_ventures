@@ -25,9 +25,6 @@ class CreateUsersTable extends Migration
 
             $table->integer('status')->default(1);
 
-            $table->integer('created_by')->default(1);
-            $table->integer('updated_by')->nullable();
-            $table->integer('deleted_by')->nullable();
             $table->timestamps();
             $table->datetime('deleted_at')->nullable();
         });
